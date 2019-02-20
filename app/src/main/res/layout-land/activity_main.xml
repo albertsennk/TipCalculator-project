@@ -10,8 +10,8 @@
         android:id="@+id/billText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
         android:text="@string/amount"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -20,63 +20,61 @@
         android:id="@+id/billAmount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
         android:hint="@string/defaultPrice"
         android:inputType="numberDecimal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/billText"
+        app:layout_constraintEnd_toEndOf="@+id/numPeople"
+        app:layout_constraintTop_toTopOf="@+id/billText" />
 
     <TextView
         android:id="@+id/partySize"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:layout_weight="1"
         android:text="@string/numPeople"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/billText"
         app:layout_constraintTop_toBottomOf="@+id/billAmount" />
 
     <EditText
         android:id="@+id/numPeople"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="8dp"
         android:hint="@string/defaultNumPeople"
         android:inputType="number"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/billText" />
+        app:layout_constraintBottom_toBottomOf="@+id/partySize"
+        app:layout_constraintEnd_toEndOf="@+id/customTip"
+        app:layout_constraintTop_toTopOf="@+id/partySize" />
 
     <TextView
         android:id="@+id/tipText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="32dp"
         android:text="@string/tipPercent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/partySize"
         app:layout_constraintTop_toBottomOf="@+id/numPeople" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
         android:checkedButton="@+id/radioCustom"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/tipText"
-        tools:layout_editor_absoluteX="72dp">
+        app:layout_constraintBottom_toBottomOf="@+id/tipText"
+        app:layout_constraintStart_toEndOf="@+id/tipText"
+        app:layout_constraintTop_toTopOf="@+id/tipText">
 
         <RadioButton
             android:id="@+id/radioTen"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginStart="8dp"
             android:layout_marginBottom="8dp"
-            android:text="@string/ten"
-            android:onClick="onRadioButtonClicked"/>
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/ten" />
 
         <RadioButton
             android:id="@+id/radioFifteen"
@@ -84,8 +82,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginBottom="8dp"
-            android:text="@string/fifteen"
-            android:onClick="onRadioButtonClicked"/>
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/fifteen" />
 
         <RadioButton
             android:id="@+id/radioTwenty"
@@ -93,8 +91,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginBottom="8dp"
-            android:text="@string/twenty"
-            android:onClick="onRadioButtonClicked"/>
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/twenty" />
 
         <RadioButton
             android:id="@+id/radioCustom"
@@ -102,8 +100,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginBottom="8dp"
-            android:text="@string/customTip"
-            android:onClick="onRadioButtonClicked"/>
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/customTip" />
 
     </RadioGroup>
 
@@ -111,30 +109,33 @@
         android:id="@+id/customTip"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
+        android:layout_marginStart="8dp"
         android:hint="@string/customTipDefault"
         android:inputType="number"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tipText" />
+        app:layout_constraintBottom_toBottomOf="@+id/tipText"
+        app:layout_constraintStart_toEndOf="@+id/radioGroup"
+        app:layout_constraintTop_toTopOf="@+id/tipText" />
 
     <Button
         android:id="@+id/resetButton"
         android:layout_width="88dp"
         android:layout_height="48dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="4dp"
         android:text="@string/reset"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/calculate"
+        app:layout_constraintEnd_toEndOf="@+id/pricePP"
+        app:layout_constraintStart_toStartOf="@+id/pricePP"
+        app:layout_constraintTop_toTopOf="@+id/calculate" />
 
     <Button
         android:id="@+id/calculate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="8dp"
         android:layout_weight="1"
         android:text="@string/calculate"
+        app:layout_constraintEnd_toEndOf="@+id/customTip"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
@@ -142,22 +143,22 @@
         android:id="@+id/finalTip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="128dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintBottom_toBottomOf="@+id/billAmount"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/calculate" />
+        app:layout_constraintStart_toEndOf="@+id/billAmount"
+        app:layout_constraintTop_toTopOf="@+id/billAmount" />
 
     <TextView
         android:id="@+id/billTotal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/numPeople"
         app:layout_constraintTop_toBottomOf="@+id/finalTip" />
 
     <TextView
@@ -165,10 +166,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/customTip"
         app:layout_constraintTop_toBottomOf="@+id/billTotal" />
 
 

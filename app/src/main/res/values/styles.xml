@@ -5,7 +5,20 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorSecondary">@color/colorSecondary</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:colorBackground">@color/colorBackground</item>
+        <!--<item name="android:textColor">@color/textColor</item>-->
+        <item name="editTextColor">@color/editTextColor</item>
+        <item name="android:textColorHint">@color/editTextColor</item>
+        <!--<item name="colorButtonNormal">@color/colorAccent</item>-->
+        <!--<item name="android:fontFamily">@font/lsans</item>-->
+        <item name="android:textSize">15dp</item>
+        <!--<item name="android:textColor"-->
     </style>
+
+    <!--<style name="buttonStyle" parent="Widget.AppCompat.Button">-->
+        <!--<item name="android:textColor">@color/buttonTextColor</item>-->
+    <!--</style>-->
 
 </resources>
